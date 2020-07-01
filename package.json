@@ -1,0 +1,30 @@
+{
+  "name": "git-test",
+  "version": "1.0.0",
+  "description": "git commands test",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "NODE_ENV=development node src",
+    "lint": "eslint --ignore-path .gitignore . --fix"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "echo Check your code && eslint src"
+    }
+  },
+  "dependencies": {
+    "pino": "^6.3.2",
+    "pino-pretty": "^4.0.0"
+  },
+  "author": "Roman",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-prettier": "^3.1.2",
+    "husky": "^4.2.3",
+    "prettier": "^1.19.1"
+  }
+}
