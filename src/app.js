@@ -2,7 +2,7 @@ const http = require('http');
 
 const log = require('./logger')(__filename);
 
-const PORT = 3000;
+const {PORT} = require('./config');
 
 const server = http.createServer((req, res) => {
   res.end();
