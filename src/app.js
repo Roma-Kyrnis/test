@@ -1,12 +1,10 @@
 const http = require('http');
 
 const log = require('./logger')(__filename);
+const {PORT, HOSTNAME} = require('./config');
+const requestHandler = require('./http-server/requestHandler');
 
-const {PORT} = require('./config');
-
-const server = http.createServer((req, res) => {
-  res.end();
-});
+const server = http.createServer(requestHandler);
 
 server.on('clientError', (err, socket) => {
   log.error('HTTP error');
@@ -16,7 +14,7 @@ server.on('clientError', (err, socket) => {
 function launch() {
   log.info('App start to working now!');
 
-  server.listen(PORT);
+  server.listen(PORT, HOSTNAME);
 
   log.info(`PORT: ${PORT}`);
 }
